@@ -24,7 +24,9 @@ class Inspector
   def sort(input)
     return input if input.empty?
     return input if input.size == 1
-    rest = sort(input[1..-1])
-    (input[0] < max(rest)) ? rest.unshift(input[0]) : rest << input[0]
+    return (input[0] < input[1]) ? input : reverse(input) if input.size == 2
+    head = input[0]
+    rest = input[1..-1]
+    (head >= rest[0])  ? rest.unshift(input[0]) : rest << input[0]
   end
 end
