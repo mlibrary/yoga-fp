@@ -15,7 +15,7 @@ class Inspector
   def max(lst, current_highest = 0)
     return current_highest if lst.empty?
     head, rest = fshift(lst)
-    _max(rest, head > current_highest ?  head : current_highest)
+    max(rest, head > current_highest ?  head : current_highest)
   end
 
   def square(lst)
@@ -29,7 +29,7 @@ class Inspector
     head,rest = fshift(lst)
     reverse(rest).push(head)
   end
-  
+
 
 
 end
