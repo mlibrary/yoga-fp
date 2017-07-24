@@ -54,15 +54,12 @@ class Inspector
 
   private
   def insert(value, values)
-    case values.length
-    when 0
+    if values.length == 0
       [value]
+    elsif value < values.first
+      [value] + values
     else
-      if value < values.first
-       [value] + values
-      else
-       [values.first] + insert(value, values[1..-1])
-      end
+      values[0..0] + insert(value, values[1..-1])
     end
   end
 end
